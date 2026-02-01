@@ -1,31 +1,30 @@
 // mastra.config.ts
-import { defineConfig } from '@mastra/core';
-import { openai, anthropic } from '@mastra/integrations';
+// Configuration for mnty x card grading AI agents
+import { config } from 'dotenv';
 
-export default defineConfig({
+config();
+
+export const mastraConfig = {
   name: 'mnty-x-card-grading',
   version: '1.0.0',
   
-  integrations: [
-    openai({
+  providers: {
+    openai: {
       apiKey: process.env.OPENAI_API_KEY!,
-    }),
-    anthropic({
+      models: {
+        'gpt-4-turbo': 'gpt-4-turbo-2024-04-09',
+        'gpt-4-vision': 'gpt-4-vision-preview',
+      }
+    },
+    anthropic: {
       apiKey: process.env.ANTHROPIC_API_KEY!,
-    }),
-  ],
-  
-  agents: './agents',
-  tools: './tools',
-  workflows: './workflows',
-  
-  env: {
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY!,
-    ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY!,
+      models: {
+        'claude-3-5-sonnet': 'claude-3-5-sonnet-20241022',
+      }
+    },
   },
   
-  deployment: {
-    provider: 'mastra-cloud',
-    region: 'us-east-1',
-  },
-});
+  environment: process.env.MASTRA_ENVIRONMENT || 'development',
+};
+
+export default mastraConfig;
