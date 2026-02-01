@@ -1,12 +1,16 @@
 import { Observability, DefaultExporter, CloudExporter, SensitiveDataFilter } from '@mastra/observability';
-import { Mastra } from '@mastra/core/mastra';
-import { LibSQLStore } from '@mastra/libsql';
-import { PinoLogger } from '@mastra/loggers';
-import { codingAgent } from './agents/coding-agent';
+import { orchestrator } from './agents/orchestrator';
+import { edgesAgent } from "./agents/edges";
+import { cornersAgent } from "./agents/corners";
+import { centeringAgent } from "./agents/centering";
+import { surfaceAgent } from "./agents/surface";
+import { qaConsensusAgent } from "./agents/qa-consensus";
+import {Mastra} from "@mastra/core";
+import {PinoLogger} from "@mastra/loggers";
 
 export const mastra = new Mastra({
-  agents: { codingAgent },
-  storage: new LibSQLStore({ id: 'mastra-storage', url: 'file:../../mastra.db' }),
+  agents: { orchestrator, edgesAgent, cornersAgent, centeringAgent, surfaceAgent, qaConsensusAgent },
+
   logger: new PinoLogger({
     name: 'Mastra',
     level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
