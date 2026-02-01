@@ -2,19 +2,39 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@agents/*": ["agents/*"],
+      "@tools/*": ["tools/*"],
+      "@workflows/*": ["workflows/*"],
+      "@types/*": ["types/*"]
     }
   },
-  "include": ["src/**/*", "mastra.config.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "agents/**/*",
+    "tools/**/*",
+    "workflows/**/*",
+    "src/**/*",
+    "types/**/*",
+    "mastra.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
 }
