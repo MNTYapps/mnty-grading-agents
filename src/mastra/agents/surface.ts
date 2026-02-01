@@ -14,5 +14,5 @@ Back surface (0-125 points): Same criteria.
 Total: 0-250 points.
 Return JSON with front and back details.`,
 
-    model: 'gpt-4-vision-preview',
+    model: 'openai/gpt-4-vision-preview',
 });

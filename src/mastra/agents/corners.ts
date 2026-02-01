@@ -13,5 +13,5 @@ Each corner scored 0-62.5 points:
 Total: 0-250 points (sum of all 8 corners).
 Return JSON with all corner details.`,
 
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'anthropic/claude-3-5-sonnet-20241022',
 });

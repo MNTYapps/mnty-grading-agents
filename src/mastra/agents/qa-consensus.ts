@@ -14,5 +14,5 @@ GRADE CONVERSION (1000 points total):
 Validate scores match, calculate confidence, flag if human review needed.
 Return JSON with final_grade, confidence, and reasoning.`,
 
-    model: 'gpt-4-turbo'
+    model: 'openai/gpt-4-turbo'
 });

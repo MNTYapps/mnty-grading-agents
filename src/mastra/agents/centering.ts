@@ -14,5 +14,5 @@ SCORING CRITERIA (0-250 points):
 Analyze front and back images. Measure border widths.
 Return JSON: {"score": 0-250, "front_lr_ratio": "X/Y", "confidence": 0-1}`,
 
-    model: 'gpt-4-vision-preview',
+    model: 'openai/gpt-4-vision-preview',
 });

@@ -13,5 +13,5 @@ Each edge scored 0-62.5 points:
 Total: 0-250 points (sum of all 4 edges).
 Return JSON with all edge details.`,
 
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'anthropic/claude-3-5-sonnet-20241022',
 });
