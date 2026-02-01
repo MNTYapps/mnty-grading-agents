@@ -5,14 +5,15 @@ import { cornersAgent } from "./agents/corners";
 import { centeringAgent } from "./agents/centering";
 import { surfaceAgent } from "./agents/surface";
 import { qaConsensusAgent } from "./agents/qa-consensus";
+import { LibSQLStore} from "@mastra/libsql";
 import {Mastra} from "@mastra/core";
 import {PinoLogger} from "@mastra/loggers";
 
 export const mastra = new Mastra({
   agents: { orchestrator, edgesAgent, cornersAgent, centeringAgent, surfaceAgent, qaConsensusAgent },
-
+  storage: new LibSQLStore({ id: 'mnty-grading-storage', url: 'file:../../mastra.db'}),
   logger: new PinoLogger({
-    name: 'Mastra',
+    name: 'mnty Grading',
     level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
   }),
   observability: new Observability({
