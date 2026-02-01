@@ -1,35 +1,37 @@
 {
-  "name": "@mntyx/card-grading-agents",
-  "version": "1.0.0",
-  "description": "Mastra.ai multi-agent system for professional trading card grading",
-  "main": "src/index.ts",
+  "name": "coding-agent",
+  "version": "0.2.0",
+  "description": "Advanced Mastra AI coding agent with secure sandbox execution, comprehensive file management, and multi-language support for Python, JavaScript, and TypeScript development workflows",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mastra dev",
     "build": "mastra build",
-    "deploy": "mastra deploy",
-    "test": "mastra test",
-    "lint": "eslint src/**/*.ts",
-    "type-check": "tsc --noEmit"
+    "start": "mastra start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
   },
   "dependencies": {
-    "@mastra/core": "^0.1.0",
-    "@mastra/integrations": "^0.1.0",
-    "@anthropic-ai/sdk": "^0.20.0",
-    "openai": "^4.28.0",
-    "zod": "^3.22.4"
+    "@daytonaio/sdk": "^0.120.0",
+    "@e2b/code-interpreter": "^1.5.1",
+    "@mastra/core": "latest",
+    "@mastra/fastembed": "latest",
+    "@mastra/libsql": "latest",
+    "@mastra/loggers": "latest",
+    "@mastra/mcp": "latest",
+    "@mastra/memory": "latest",
+    "@mastra/observability": "latest",
+    "supports-color": "^10.2.2",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "typescript": "^5.3.3",
-    "eslint": "^8.56.0"
-  },
-  "keywords": [
-    "mastra",
-    "ai-agents",
-    "card-grading",
-    "trading-cards",
-    "computer-vision"
-  ],
-  "author": "mnty x",
-  "license": "MIT"
+    "@types/node": "^24.10.9",
+    "mastra": "latest",
+    "typescript": "^5.9.3"
+  }
 }
